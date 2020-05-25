@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  it { should have_many(:assignments) }
+  it { should have_many(:roles).through(:assignments) }
+
   describe 'table' do
     it { is_expected.to have_db_column :id }
     it { is_expected.to have_db_column :name }
@@ -11,7 +14,7 @@ RSpec.describe User, type: :model do
   describe 'valid attributes' do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:email) }
-    
+
     it 'expects email to be valid' do
       new_user = User.new(name: 'jon doe', email: 'jondoe@gmail.com',
                password_digest: '123Jondo#')
