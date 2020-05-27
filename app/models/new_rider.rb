@@ -1,0 +1,2 @@
+class NewRider < ApplicationRecord
+end
