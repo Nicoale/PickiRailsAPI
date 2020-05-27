@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   include ActionController::Helpers
   include ActionController::Flash
@@ -6,8 +8,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:email])
-  if user && user.authenticate(params[:password_digest])
+    user = User.find_by(email: params[:email])
+  if user&.authenticate(params[:password_digest])
     session[:user_id] = user.id
     redirect_to root_url, notice: "Logged in!"
   else
