@@ -15,7 +15,7 @@ class Api::V1::RiderLoginsController < ApplicationController
 
         render json: {csrf: tokens [:csrf]}
       else
-        unauthorised
+        not_available
       end                    
     end
      
