@@ -8,6 +8,6 @@ class User < ApplicationRecord
     has_many :roles, through: :assignments
 
     validates :name, presence: true
-    validates :email, presence: true, email: true, uniqueness: true
+    validates :email, presence: true, email: false, uniqueness: true
     validates :password_digest, presence: true
 end
