@@ -12,5 +12,10 @@ Rails.application.routes.draw do
       resources :logins
     end
   end
+  namespace :api do
+    namespace :v1 do
+      resources :ridersignup
+    end
+  end
 end
 
