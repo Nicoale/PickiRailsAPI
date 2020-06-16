@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-    include JWTSessions::RailsAuthorisation
-    rescue_from JWTSessions::Errors::Unauthorised, with Unauthorised_request
+    include JWTSessions::RailsAuthorization
+    rescue_from JWTSessions::Errors::Unauthorized, with: :not_authorized
         
     private 
 
-        def Unauthorised_request
-            render json: { error: 'Unauthorised'}, status: :unauthorised
+        def not_authorized
+            render json: { error: 'Unauthorized'}, status: :unauthorized
         end
-end
+
+end 
