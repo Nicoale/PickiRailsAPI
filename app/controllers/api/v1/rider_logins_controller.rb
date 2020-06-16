@@ -1,5 +1,7 @@
 class Api::V1::RiderLoginsController < ApplicationController
-  before_action : authorise_access_request!, only:[:destroy]
+  before_action :authorise_access_request!, only: [:destroy]
+  def index
+  end
 
     def create
       rider =Rider.find_by(email: params[:email])
@@ -13,7 +15,7 @@ class Api::V1::RiderLoginsController < ApplicationController
                             secure: Rails.env.production?
                           )
 
-        render json: {csrf: tokens [:csrf]}
+        format.json{csrf {tokens [csrf]}}
       else
         not_available
       end                    
