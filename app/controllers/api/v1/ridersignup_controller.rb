@@ -14,7 +14,7 @@ class RidersignupController < ApplicationController
                         )
     render json: {csrf: tokens[:csrf]}
                       else
-                        render jason: {error: rider.errors.full_messages.join('', status: ::unprocessable_entity)} 
+                        render json: {error: rider.errors.full_messages.join('', status: ::unprocessable_entity)} 
     end
   end
 
