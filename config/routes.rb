@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   namespace :api do
     namespace :v1 do
-      get 'rider_logins/index'
+      get'rider_logins#index'
       get 'rider_logins/show'
       get 'rider_logins/update'
     end
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
-      resources :ridersignup
+      resources :ridersignup     
     end
   end
 end

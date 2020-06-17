@@ -1,4 +1,7 @@
 class RidersignupController < ApplicationController
+  def index
+    
+  end
   def create
     rider= rider.new(rider_params)
     if rider.save
