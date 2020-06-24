@@ -1,8 +1,6 @@
 class Api::V1::RiderLoginsController < ApplicationController
   before_action :authorise_access_request!, only: [:destroy]
-  def index
-  end
-
+    
     def create
       rider =Rider.find_by(email: params[:email])
       if rider.authenticate(params[:password])
